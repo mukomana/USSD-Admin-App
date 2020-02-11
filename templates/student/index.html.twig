@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello Admin!{% endblock %}
+
+{% block stylesheets %}
+	<link href="{{ asset('css/style.css') }}" rel="stylesheet" />
+	<link href="{{ asset('css/content.css') }}" rel="stylesheet" />
+{% endblock %}
+{% block topbar %}<div class="header">USSD App Admin</div>{% endblock %}
+{% block sidebar %}
+    <div class="sidebar">
+      <a class="active" href="#home">Home</a>
+      <a href="/student_table">Student Results - Table</a>
+      <a href="/students_chart">Student Results - Chart</a>
+      <a href="/logout">Logout</a>
+    </div>
+{% endblock %}
+
+{% block mainbody %}
+	<div class="mainbody">
+    	<h1>Hello {{ user.getUsername() }}! ✅</h1>
+
+    </div>
+{% endblock %}

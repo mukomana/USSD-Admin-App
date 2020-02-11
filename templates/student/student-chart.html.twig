@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet" />
+    <link href="{{ asset('css/content.css') }}" rel="stylesheet" />
+{% endblock %}
+{% block topbar %}<div class="header">USSD App Admin</div>{% endblock %}
+{% block sidebar %}
+    <div class="sidebar">
+      <a href="/home">Home</a>
+      <a href="/student_table">Student Results - Table</a>
+      <a class="active" href="/students_chart">Student Results - Chart</a>
+      <a href="/logout">Logout</a>
+    </div>
+{% endblock %}
+
+{% block mainbody %}
+	
+    <div id="div_barchart"></div>
+    
+    {{ barchart('Scores', 'div_barchart')|raw }}
+{% endblock mainbody %}
+
+{% block javascripts %}
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <?= $lava->render('Barchart', 'Scores', 'div_barchart'); ?>
+{% endblock %}
