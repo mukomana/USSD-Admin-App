@@ -2,7 +2,7 @@
 /* The side navigation menu */
 body {
   max-width: 1000px;
-  height: 800px;
+  height: 100vh;
   margin: auto;
   position: auto;
 }
@@ -18,9 +18,18 @@ body {
   width: 800px;
   background-color: #f1f1f1;
   position: relative;
-  height: 800px;
+  height: 89vh;
   overflow: auto;
   float: right;
+}
+
+.mainbody ol {
+	padding-left: 50px;
+	padding-right: 200px;
+}
+
+.mainbody ol li {
+	padding-bottom: 20px;
 }
 
 /* Sidebar links */
@@ -33,7 +42,7 @@ body {
 
 /* Active/current link */
 .mainbody a.active {
-  background-color: #4CAF50;
+  background-color: #3274d6;
   color: white;
 }
 
@@ -90,16 +99,24 @@ div.content {
   box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.1);
 }
 .responsive-table .col-1 {
-  flex-basis: 25%;
+  flex-basis: 20%;
 }
 .responsive-table .col-2 {
-  flex-basis: 25%;
+  flex-basis: 20%;
 }
 .responsive-table .col-3 {
-  flex-basis: 25%;
+  flex-basis: 20%;
 }
 .responsive-table .col-4 {
-  flex-basis: 25%;
+  flex-basis: 20%;
+  textalign: center;
+}
+.responsive-table .col-5 {
+  flex-basis: 20%;
+  textalign: center;
+}
+.responsive-table .col-6 {
+  flex-basis: 20%;
 }
 @media all and (max-width: 767px) {
   .responsive-table .table-header {

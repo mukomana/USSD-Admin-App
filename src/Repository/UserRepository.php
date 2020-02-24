@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * @method User|null find($id, $lockMode = null, $lockVersion = null)
@@ -53,8 +54,52 @@ class UserRepository extends ServiceEntityRepository
         return $this->createQueryBuilder('u')
         ->where('u.username = :username OR u.email = :email')
         ->setParameter('username', $username)
-        ->setParameter('email', $username)
+        ->setParameter('email', $email)
         ->getQuery()
         ->getOneOrNullResult();
+    }
+    
+    public function saveUser($user){
+        $this->em->persist($user);
+        echo 'Student '.$user->name.'saved';
+        return new Response('User '.$user->name.'saved');
+    }
+    
+    public function getAllStudents(){
+        return $this->repository->findAll();
+    }
+    
+    public function getUserByUsername($username){
+        
+        //$user = $userRepository->getUserByMSISDN($userRepository, $msisdn);
+        
+        return $this->repository->findOneBy([
+            'username' => $username]
+            );
+    }
+    
+    public function findAll() : array {
+        $entityManager = $this->getEntityManager();
+        
+        $query = $entityManager->createQuery(
+            'SELECT user
+            FROM App\Entity\User user'
+            );
+        
+        // returns an array of user objects
+        return $query->getResult();
+    }
+    
+    public function getUserByID($id) {
+        $entityManager = $this->getEntityManager();
+        
+        $query = $entityManager->createQuery(
+            'SELECT user
+            FROM App\Entity\User user
+            WHERE user.id = :id'
+            )->setParameter('id', $id);
+            
+            // returns an User objects
+            return $query->getResult();
     }
 }

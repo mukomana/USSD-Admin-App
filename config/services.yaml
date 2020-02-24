@@ -5,6 +5,9 @@
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
 
+#imports:
+#    - { resource: '@LavachartsBundle/Resources/config/services.yml' }
+
 services:
     # default configuration for services in *this* file
     _defaults:
@@ -22,7 +25,7 @@ services:
     App\Controller\:
         resource: '../src/Controller'
         tags: ['controller.service_arguments']
-
+        
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
     #App\Service\:
@@ -30,4 +33,3 @@ services:
     
     #App\Repository\:
     #    resource: '../src/Repository'
-        

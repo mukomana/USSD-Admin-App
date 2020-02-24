@@ -8,21 +8,27 @@
 {% block topbar %}
 	{{ parent() }}
 {% endblock %}
+
 {% block sidebar %}
     <div class="sidebar">
-      <a href="/">Home</a>
-      <a href="/manage_users">View users</a>
-      <a class="active" href="create_user">Create user</a>
+      <a class="active" href="/">Home</a>
+      <a href="/student_table">Student Results - Table</a>
+      <a href="/chart">Student Results - Chart</a>
+      <a href="/manage_users">Manager users</a>
+      <a href="/logout">Logout</a>
     </div>
 {% endblock %}
 
 {% block mainbody %}
 	<div class="mainbody">
 	    {{ form_start(form) }}
-            {{ form_row(form.username) }}
-            {{ form_row(form.email) }}
-            {{ form_row(form.plainPassword.first) }}
-            {{ form_row(form.plainPassword.second) }}
+	        {{ form_row(form.id) }}
+            {{ form_row(form.msisdn) }}
+            {{ form_row(form.name) }}
+            {{ form_row(form.surname) }}
+            {{ form_row(form.age) }}
+            {{ form_row(form.courseWorkScore) }}
+            {{ form_row(form.finalScore) }}
 			<button type="submit">Register!</button>
            {{ form_end(form) }}
 	</div>

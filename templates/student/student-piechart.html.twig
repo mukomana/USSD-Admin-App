@@ -12,15 +12,17 @@
 {% block sidebar %}
     <div class="sidebar">
       <a href="/">Home</a>
-      <a href="/piechart">Pie Chart</a>
-      <a class="active" href="/barchart">Bar Chart</a>
+      <a class="active" href="/piechart">Pie Chart</a>
+      <a href="/barchart">Bar Chart</a>
       <a href="/columnchart">Column Chart</a>
+      <a href="/histogram">Histogram</a>
+      <a href="/scatterchart">Scatter Chart</a>
     </div>
 {% endblock %}
 
 {% block mainbody %}
 	<div class="mainbody">
-    	<div id="linechart" style="min-width: 200px; height: 200px; margin: 0 auto; background: white;">Test Chart</div>
+    	<div id="linechart" style="min-width: 200px; height: 100vh; margin: 0 auto; background: white;">Test Chart</div>
     </div>
 {% endblock mainbody %}
 

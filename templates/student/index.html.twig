@@ -1,24 +1,33 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello Admin!{% endblock %}
+{% block title %}USSD App Dashboard!{% endblock %}
 
 {% block stylesheets %}
 	<link href="{{ asset('css/style.css') }}" rel="stylesheet" />
 	<link href="{{ asset('css/content.css') }}" rel="stylesheet" />
 {% endblock %}
-{% block topbar %}<div class="header">USSD App Admin</div>{% endblock %}
+{% block topbar %}
+	{{ parent() }}
+{% endblock %}
+
 {% block sidebar %}
     <div class="sidebar">
-      <a class="active" href="#home">Home</a>
+      <a class="active" href="/">Home</a>
       <a href="/student_table">Student Results - Table</a>
-      <a href="/students_chart">Student Results - Chart</a>
+      <a href="/piechart">Student Results - Chart</a>
+      <a href="/manage_users">Manager users</a>
       <a href="/logout">Logout</a>
     </div>
 {% endblock %}
 
 {% block mainbody %}
 	<div class="mainbody">
-    	<h1>Hello {{ user.getUsername() }}! ✅</h1>
-
+    	<h1 style="text-align: center">Welcome {{ user.getFirstName() }}! </h1>
+		<p>This application provides the following:</p>
+		<ol type="1" >
+			<li>A basic interface that shows the stored data needs to be created, we would like to see any rich client framework you are comfortable with included here.</li>
+			<li>A page indicating a graph to show some detail of the stored data needs to be provided</li>
+		</ol>
+		<p>The data is supplied by a USSD Application. It saves the data to a MySQL data.</p>
     </div>
 {% endblock %}

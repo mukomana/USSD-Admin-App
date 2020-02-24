@@ -40,42 +40,56 @@ class Student {
     /**
      * @ORM\Column(type="integer")
      */
-    private $score;
+    private $age;
     
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $courseWorkScore;
     
-    //private $monthlyCosts = array();
-    
-    
-    //private $subject = array();
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $finalScore;
 
+    
+
+    /**
+     * @return mixed
+     */
     public function getId(): ?int
     {
         return $this->id;
     }
-    
-    public function setId(int $id): self
+
+    /**
+     * @param mixed $id
+     */
+    public function setId($id): self
     {
         $this->id = $id;
-        
-        return $this;
-    }
-    
-    public function getMsisdn(): ?string
-    {
-        return $this->msisdn;
-    }
-    
-    public function setMsisdn(string $msisdn): self
-    {
-        $this->msisdn = $msisdn;
-        
-        return $this;
     }
 
     /**
      * @return mixed
      */
-    public function getName()
+    public function getMsisdn()
+    {
+        return $this->msisdn;
+    }
+
+    /**
+     * @param mixed $msisdn
+     */
+    public function setMsisdn($msisdn)
+    {
+        $this->msisdn = $msisdn;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getName(): ?string
     {
         return $this->name;
     }
@@ -83,7 +97,7 @@ class Student {
     /**
      * @param mixed $name
      */
-    public function setName($name)
+    public function setName($name): self
     {
         $this->name = $name;
     }
@@ -91,7 +105,7 @@ class Student {
     /**
      * @return mixed
      */
-    public function getSurname()
+    public function getSurname(): ?string
     {
         return $this->surname;
     }
@@ -99,7 +113,7 @@ class Student {
     /**
      * @param mixed $surname
      */
-    public function setSurname($surname)
+    public function setSurname($surname): self
     {
         $this->surname = $surname;
     }
@@ -107,18 +121,20 @@ class Student {
     /**
      * @return mixed
      */
-    public function getScore()
+    public function getAge(): ?int
     {
-        return $this->score;
+        return $this->age;
     }
-
+    
     /**
-     * @param mixed $score
+     * @param mixed $age
      */
-    public function setScore($score)
+    public function setAge($age): self
     {
-        $this->score = $score;
+        $this->age = $age;
     }
+    
+   
      
     /**
      * @return multitype:
@@ -152,6 +168,38 @@ class Student {
         $this->monthlyCosts = $monthlyCosts;
     }*/
     
+    /**
+     * @return mixed
+     */
+    public function getCourseWorkScore(): ?int
+    {
+        return $this->courseWorkScore;
+    }
+
+    /**
+     * @param mixed $courseWorkScore
+     */
+    public function setCourseWorkScore($courseWorkScore): self
+    {
+        $this->courseWorkScore = $courseWorkScore;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFinalScore(): ?int
+    {
+        return $this->finalScore;
+    }
+
+    /**
+     * @param mixed $finalScore
+     */
+    public function setFinalScore($finalScore): self
+    {
+        $this->finalScore = $finalScore;
+    }
+
     public static function loadValidatorMetadata(ClassMetadata $metadata) {
         $metadata->addPropertyConstraint('user', new NotBlank());
         $metadata->addPropertyConstraint('surname', new NotBlank);

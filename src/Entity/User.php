@@ -22,6 +22,16 @@ class User implements UserInterface, \Serializable
      * @ORM\Column(type="string", length=25, unique=true)
      */
     private $username;
+    
+    /**
+     * @ORM\Column(type="string", length=25, unique=true)
+     */
+    private $firstname;
+    
+    /**
+     * @ORM\Column(type="string", length=25, unique=true)
+     */
+    private $surname;
 
     /**
      * @ORM\Column(type="string", length=64)
@@ -59,6 +69,38 @@ class User implements UserInterface, \Serializable
         return $this;
     }
     
+    /**
+     * @return mixed
+     */
+    public function getFirstname(): ?string
+    {
+        return $this->firstname;
+    }
+
+    /**
+     * @param mixed $firstname
+     */
+    public function setFirstname($firstname): self
+    {
+        $this->firstname = $firstname;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSurname(): ?string
+    {
+        return $this->surname;
+    }
+
+    /**
+     * @param mixed $surname
+     */
+    public function setSurname($surname): self
+    {
+        $this->surname = $surname;
+    }
+
     public function getSalt(){
         return null;
     }

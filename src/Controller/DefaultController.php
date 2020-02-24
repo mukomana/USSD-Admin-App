@@ -17,23 +17,12 @@ class DefaultController extends AbstractController
     }
     
     /**
-     * @Route("/home", name="home")
+     * @Route("/", name="home")
      */
     public function home()
     {
         $user = $this->getUser();
         return $this->render('student/index.html.twig', [
-            'user' => $user,
-        ]);
-    }
-    
-    /**
-     * @Route("/logout", name="logout")
-     */
-    public function logout()
-    {
-        $user = $this->getUser();
-        return $this->render('security/login.html.twig', [
             'user' => $user,
         ]);
     }

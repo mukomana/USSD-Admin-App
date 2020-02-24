@@ -13,4 +13,6 @@ return [
     Symfony\Bundle\SecurityBundle\SecurityBundle::class => ['all' => true],
     Symfony\Bundle\MakerBundle\MakerBundle::class => ['dev' => true],
     Khill\Lavacharts\Symfony\Bundle\LavachartsBundle::class => ['all' => true],
+    Ob\HighchartsBundle\ObHighchartsBundle::class => ['all' => true],
+    CMEN\GoogleChartsBundle\CMENGoogleChartsBundle::class => ['all' => true],
 ];

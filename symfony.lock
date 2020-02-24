@@ -1,4 +1,7 @@
 {
+    "cmen/google-charts-bundle": {
+        "version": "3.2.1"
+    },
     "doctrine/annotations": {
         "version": "1.0",
         "recipe": {
@@ -102,6 +105,9 @@
     "laminas/laminas-eventmanager": {
         "version": "3.2.1"
     },
+    "laminas/laminas-json": {
+        "version": "3.1.2"
+    },
     "laminas/laminas-zendframework-bridge": {
         "version": "1.0.1"
     },
@@ -113,6 +119,9 @@
     },
     "nikic/php-parser": {
         "version": "v4.3.0"
+    },
+    "ob/highcharts-bundle": {
+        "version": "1.7"
     },
     "ocramius/package-versions": {
         "version": "1.5.1"

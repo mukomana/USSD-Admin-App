@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Doctrine\ORM\EntityRepository;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
+use Doctrine\DBAL\Schema\Table;
 
 final class StudentRepository extends ServiceEntityRepository
 {
@@ -40,17 +41,27 @@ final class StudentRepository extends ServiceEntityRepository
         return $this->repository->findAll();
     }
     
-    public function getUserByMSISDN($msisdn){
+    public function getStudentByMSISDN($msisdn, StudentRepository $studentRepository){
+        $entityManager = $this->getEntityManager();
+        //$student = $studentRepository->getStudentByMSISDN($userRepository, $msisdn);
+        $studentRepository->findBy($criteria);
+        $query = $entityManager->createQuery(
+            'SELECT * FROM student WHERE student.msisdn = :msisdn')->setParameter('msisdn', $msisdn);
+        $query->execute();
+        return $query->getArrayResult();
         
-        //$user = $userRepository->getUserByMSISDN($userRepository, $msisdn);
-        
-        return $this->repository->findOneBy([
-            'msisdn' => $msisdn]
-        );
     }
     
-    public function getScores(){
-        
+    public function getScoreFreq(){
+        $sql = "SELECT FLOOR(score/10) grade, COUNT(*) count FROM student GROUP BY 1";
+        $query = $this->getEntityManager()->getConnection()->prepare($sql);
+        $scoreFreqArray = array();
+        array_push($scoreFreqArray, array('Grade', 'Count'));
+        $query->execute();
+        foreach ($query as $row) {
+             array_push($scoreFreqArray, array($row['grade']*10, $row['count']));
+        }
+        return $scoreFreqArray;
     }
     
     public function findAll() : array {
@@ -60,22 +71,26 @@ final class StudentRepository extends ServiceEntityRepository
             'SELECT student
             FROM App\Entity\Student student'
             );
+        $query->execute();
             
             // returns an array of Product objects
             return $query->getResult();
     }
     
-    public function findUserByID($id) {
+    public function getStudentByID($id) {
         $entityManager = $this->getEntityManager();
         
-        $query = $entityManager->createQuery(
+        $student = $entityManager->find('App\Entity\Student', $id);
+        
+        /* $query = $entityManager->createQuery(
             'SELECT student
             FROM App\Entity\Student student
-            WHERE student.id = :id)'
+            WHERE student.id = :id'
             )->setParameter('id', $id);
         
-        // returns an array of Product objects
-        return $query->getResult();
+         $query->execute();
+        // returns an array of Student objects */
+        return $student;
     }
 }
 

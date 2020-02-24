@@ -22,8 +22,9 @@ class StudentType extends AbstractType
         ->add('msisdn', NumberType::class)
         ->add('name', TextType::class)
         ->add('surname', TextType::class)
-        ->add('score', NumberType::class)
-        ->add('save', SubmitType::class)
+        ->add('age', NumberType::class)
+        ->add('courseWorkScore', NumberType::class)
+        ->add('finalScore', NumberType::class)
         ;
     }
     

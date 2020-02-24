@@ -20,7 +20,7 @@
 
 /* Active/current link */
 .sidebar a.active {
-  background-color: #4CAF50;
+  background-color: #3274d6;
   color: white;
 }
 
@@ -36,15 +36,28 @@
     top: 0;
     left: 0;
     right: 0;
-    height: 80px;
+    height: 8vh;
     text-align: center;
+    font-variant: small-caps;
+    font-size: xx-large;
+}
+
+.loginuser {
+	background-color: #f1f1f1;
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3vh;
+    text-align: right;
+    padding-right: 30px;
 }
 
 /* Page content. The value of the margin-left property should match the value of the sidebar's width property */
 div.content {
   margin-left: 0px;
   padding: 1px 16px;
-  height: 800px;
+  height: 100vh;
 }
 
 /* On screens that are less than 700px wide, make the sidebar into a topbar */
@@ -125,4 +138,24 @@ body {
 .login form input[type="submit"]:hover {
 	background-color: #2868c7;
   	transition: background-color 0.2s;
+}
+
+form div label{
+	width: 200px;
+	padding-left: 50px;
+	padding-bottom: 20px;
+	float: left;
+	display: inline-block;
+	clear: left;
+}
+
+form div input{
+	display: inline-block;
+	width: 200px;
+	float: left;
+}
+form button {
+	display: block;
+    margin: 0 auto;
+    clear: left;
 }

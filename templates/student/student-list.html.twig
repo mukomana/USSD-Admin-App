@@ -4,12 +4,15 @@
     <link href="{{ asset('css/style.css') }}" rel="stylesheet" />
     <link href="{{ asset('css/content.css') }}" rel="stylesheet" />
 {% endblock %}
-{% block topbar %}<div class="header">USSD App Admin</div>{% endblock %}
+{% block topbar %}
+	{{ parent() }}
+{% endblock %}
 {% block sidebar %}
     <div class="sidebar">
-      <a class="active" href="#home">Home</a>
-      <a href="/student_table">Student Results - Table</a>
-      <a href="/students_chart">Student Results - Chart</a>
+      <a href="/">Home</a>
+      <a class="active" href="/student_table">Student Results - Table</a>
+      <a href="/piechart">Student Results - Chart</a>
+      <a href="/manage_users">Manage users</a>
       <a href="/logout">Logout</a>
     </div>
 {% endblock %}
@@ -21,14 +24,16 @@
 					<div class="col col-1">MSISDN</div>
 					<div class="col col-2">Name</div>
 					<div class="col col-3">Surname</div>
-					<div class="col col-4">Score</div>
+					<div class="col col-4">Age</div>
+					<div class="col col-5">Final Score</div>
 				</thead>
 			    {% for student in students %}
 				<li class="table-row">
-					<div class="col col-1"><a href="http://localhost:8000/student/{{ student.id }}">{{ student.msisdn }}</a></div>
+					<div class="col col-1"><a href="http://localhost:8000/viewstudent/{{ student.id }}">{{ student.msisdn }}</a></div>
 					<div class="col col-2">{{ student.name }}</div>
 					<div class="col col-3">{{ student.surname }}</div>
-					<div class="col col-4">{{ student.score }}</div>
+					<div class="col col-4">{{ student.age }}</div>
+					<div class="col col-5">{{ student.finalScore }}</div>
 				</li>	
 		        {% endfor %}
 			</ul>

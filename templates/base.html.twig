@@ -5,13 +5,23 @@
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets %}
     		<link href="{{ asset('css/content.css') }}" rel="stylesheet" />
+    		<link href="{{ asset('css/style.css') }}" rel="stylesheet" />
         {% endblock %}
     </head>
     <body>
-    	<div id="header">{% block topbar %}{% endblock %}</div>
+    	<div id="header">
+    	    {% block topbar %}
+    			<div class="header">USSD App Dashboard</div>
+				<div class="loginuser">You are logged in as {{ user.getUsername }}</div>
+            {% endblock %}
+        </div>
     	<div id="container">
-    		<div id="sidebar">{% block sidebar %}{% endblock %}</div>
-    		<div id="mainbody">{% block mainbody %}{% endblock %}</div>
+    		<div id="sidebar">
+    		    {% block sidebar %}{% endblock %}
+    		</div>
+    		<div id="mainbody">
+    		    {% block mainbody %}{% endblock %}
+    		</div>
             {% block javascripts %}{% endblock %}
         </div>
     </body>
